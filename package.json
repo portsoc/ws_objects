@@ -1,0 +1,11 @@
+{
+  "name": "ws_objects",
+  "version": "0.1.0",
+  "description": "Intro to JS Objectst",
+  "main": "index.js",
+  "scripts": {
+    "test0": "cd 0; node index.js;",
+    "test1": "cd 1; node index.js;"
+  },
+  "author": "Rich Boakes <rich@boakes.org>"
+}
