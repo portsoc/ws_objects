@@ -1,8 +1,7 @@
 "use strict";
 /**
- * To the rectangle object we add a circle
- * object.  The circle has an x and y position
- * as well as a radius (r).
+ * We have a rectangle object, so this example
+ * uses the properties of that object to draw it.
  */
 
 // create an object using JSON
@@ -28,6 +27,12 @@ ctx.fillRect(0,0,rectangle.width, rectangle.height);
 rectangle.scale(0.5);
 ctx.fillStyle = "blue";
 ctx.fillRect(0,0,rectangle.width, rectangle.height);
+
+/**
+ * To the rectangle object we add a circle
+ * object.  The circle has an x and y position
+ * as well as a radius (r).
+ */
 
 // create an object using JSON
 const circle = {
