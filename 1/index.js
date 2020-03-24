@@ -6,6 +6,10 @@
  * Here, a scale function is added to the rectangle
  * object.  It operates on its own properties by using
  * the `this` keyword.
+ *
+ * The scale function is called twice, scaling by
+ * two and five, so that the rectangle is ten times
+ * its original size.
  */
 
 // create an object using JSON
