@@ -3,5 +3,8 @@
     "activityBar.background": "#23302E",
     "titleBar.activeBackground": "#314340",
     "titleBar.activeForeground": "#F8FAF9"
+  },
+  "files.exclude": {
+    "**/.vscode": true
   }
 }
