@@ -2,10 +2,10 @@
 /**
  * We can _structure_ the properties better, and
  * make the code a little easier to read by
- * constructing an object.
+ * constructing objects.
  *
  * Our `drawRect` function no longer needs
- * six parameters.
+ * six parameters and the code is easier to read.
  */
 
 // create an object
@@ -17,6 +17,16 @@ const rect = {
   col: 'crimson',
 };
 
+// create another object
+const anotherRect = {
+  x: 300,
+  y: 150,
+  width: 100,
+  height: 200,
+  col: 'steelblue',
+};
+
+
 // draw a rectangle
 function drawRect(c, r) {
   c.fillStyle = r.col;
@@ -27,10 +37,4 @@ function drawRect(c, r) {
 const ctx = document.querySelector('canvas').getContext('2d');
 
 drawRect(ctx, rect);
-
-// move the rectangle
-rect.x += 200;
-rect.y += 100;
-rect.col = 'steelblue';
-
-drawRect(ctx, rect);
+drawRect(ctx, anotherRect);
