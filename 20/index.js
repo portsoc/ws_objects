@@ -2,45 +2,35 @@
 /**
  * Objects can contain functions as properties.
  *
- * In the previous code, we can encapsulate with
+ * Here, we move the drawRect function into the class
+ * definition.
  *
- * Here, two functions are added to the object:
- * a moveBy function is added to the rectangle
- * object.  It operates on the object's properties
- * by using the `this` keyword.
- *
- * The bundling together of data and the methods that
- * operate on data is called 'encapsulation`.
- *
+ * Functions within objects have access to their
+ * properties by using the `this` keyword.
  */
 
-// create an object
-const rect = {
-  x: 100,
-  y: 50,
-  width: 100,
-  height: 200,
-  col: 'crimson',
+// Define the properties and functions of a Rectangle
+class Rectangle {
+  constructor(x, y, width, height, col) {
+    this.x = x;
+    this.y = y;
+    this.width = width;
+    this.height = height;
+    this.col = col;
+  }
 
-  draw: function (c) {
+  draw(ctx) {
     ctx.fillStyle = this.col;
     ctx.fillRect(this.x, this.y, this.width, this.height);
-  },
+  }
+}
 
-  moveBy: function (x, y) {
-    this.x += x;
-    this.y += y;
-  },
-};
+// Create circle and rectangle objects
+const rect = new Rectangle(100, 50, 100, 200, 'crimson');
+const anotherRect = new Rectangle(300, 150, 100, 200, 'steelblue');
 
-// draw the rectangle
+// get a handle on the drawing canvas
 const ctx = document.querySelector('canvas').getContext('2d');
 
 rect.draw(ctx);
-
-// move the rectangle
-rect.moveBy(200, 100);
-rect.col = 'steelblue';
-
-// draw it again
-rect.draw(ctx);
+anotherRect.draw(ctx);
