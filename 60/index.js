@@ -5,67 +5,73 @@
  * new _superclass_ called `Shape`.
  */
 
+
+// // Define the properties and functions of a circle
+// class Circle extends Shape {
+//   constructor(x, y, r) {
+//     super(x, y);
+//     this.r = r;
+//   }
+// }
+
+'use strict';
+/**
+ * We add a `Circle` class to complement our `Rectangle`.
+ * The circle has an `x` and `y` position as wel
+ * as a radius (`r`).
+ */
+
+
 class Shape {
-  constructor(x, y) {
+  constructor(x, y, col) {
     this.x = x;
     this.y = y;
+    this.col = col;
   }
 
-  moveBy(x, y) {
-    this.x += x;
-    this.y += y;
-  }
 }
+
 
 // Define the properties and functions of a Rectangle
 class Rectangle extends Shape {
-  constructor(x, y, w, h) {
-    super(x, y);
-    this.width = w;
-    this.height = h;
+  constructor(x, y, width, height, col) {
+    super(x, y, col);
+    this.width = width;
+    this.height = height;
   }
 
-  scale(s) {
-    this.width *= s;
-    this.height *= s;
+  draw(ctx) {
+    ctx.fillStyle = this.col;
+    ctx.fillRect(this.x, this.y, this.width, this.height);
   }
 }
 
+
 // Define the properties and functions of a circle
 class Circle extends Shape {
-  constructor(x, y, r) {
-    super(x, y);
+  constructor(x, y, r, col) {
+    super(x, y, col);
     this.r = r;
+  }
+
+  draw(ctx) {
+    ctx.fillStyle = this.col;
+    ctx.beginPath();
+    ctx.arc(this.x, this.y, this.r, 0, 2 * Math.PI);
+    ctx.fill();
   }
 }
 
 // Create circle and rectangle objects
-const rect = new Rectangle(100, 50, 100, 200);
-const circle = new Circle(150, 300, 50);
+const rect1 = new Rectangle(100, 50, 100, 200, 'crimson');
+const rect2 = new Rectangle(300, 150, 100, 200, 'steelblue');
+const circ1 = new Circle(150, 350, 50, `crimson`);
+const circ2 = new Circle(350, 450, 50, `steelblue`);
 
-
-// draw the rectangle
+// get a handle on the drawing canvas
 const ctx = document.querySelector('canvas').getContext('2d');
-ctx.fillStyle = 'crimson';
-ctx.fillRect(rect.x, rect.y, rect.width, rect.height);
 
-// move the rectangle
-rect.moveBy(200, 100);
-
-// draw it again
-ctx.fillStyle = 'steelblue';
-ctx.fillRect(rect.x, rect.y, rect.width, rect.height);
-
-// draw the circle
-ctx.fillStyle = '#70A288';
-ctx.beginPath();
-ctx.arc(circle.x, circle.y, circle.r, 0, 2 * Math.PI);
-ctx.fill();
-
-// move the circle
-circle.moveBy(200, -200);
-
-// draw the circle again
-ctx.beginPath();
-ctx.arc(circle.x, circle.y, circle.r, 0, 2 * Math.PI);
-ctx.fill();
+rect1.draw(ctx);
+rect2.draw(ctx);
+circ1.draw(ctx);
+circ2.draw(ctx);

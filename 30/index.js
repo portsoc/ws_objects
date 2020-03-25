@@ -1,41 +1,53 @@
 'use strict';
 /**
- * To our familiar rectangle object we add a circle object.
- * The circle has an x and y position as well as a radius (r).
+ * We add a `Circle` class to complement our `Rectangle`.
+ * The circle has an `x` and `y` position as wel
+ * as a radius (`r`).
  */
 
-// create an object
-const rect = {
-  x: 100,
-  y: 50,
-  width: 100,
-  height: 200,
-  moveBy: function (x, y) {
-    this.x += x;
-    this.y += y;
-  },
-};
+// Define the properties and functions of a Rectangle
+class Rectangle {
+  constructor(x, y, width, height, col) {
+    this.x = x;
+    this.y = y;
+    this.width = width;
+    this.height = height;
+    this.col = col;
+  }
 
-// draw the rectangle
+  draw(ctx) {
+    ctx.fillStyle = this.col;
+    ctx.fillRect(this.x, this.y, this.width, this.height);
+  }
+}
+
+// Define the properties and functions of a circle
+class Circle {
+  constructor(x, y, r, col) {
+    this.x = x;
+    this.y = y;
+    this.r = r;
+    this.col = col;
+  }
+
+  draw(ctx) {
+    ctx.fillStyle = this.col;
+    ctx.beginPath();
+    ctx.arc(this.x, this.y, this.r, 0, 2 * Math.PI);
+    ctx.fill();
+  }
+}
+
+// Create circle and rectangle objects
+const rect1 = new Rectangle(100, 50, 100, 200, 'crimson');
+const rect2 = new Rectangle(300, 150, 100, 200, 'steelblue');
+const circ1 = new Circle(150, 350, 50, `crimson`);
+const circ2 = new Circle(350, 450, 50, `steelblue`);
+
+// get a handle on the drawing canvas
 const ctx = document.querySelector('canvas').getContext('2d');
-ctx.fillStyle = 'crimson';
-ctx.fillRect(rect.x, rect.y, rect.width, rect.height);
 
-// move the rectangle
-rect.moveBy(200, 100);
-
-// draw it again
-ctx.fillStyle = 'steelblue';
-ctx.fillRect(rect.x, rect.y, rect.width, rect.height);
-
-// create the circle object
-const circle = {
-  x: 150,
-  y: 300,
-  r: 50,
-};
-
-ctx.fillStyle = '#70A288';
-ctx.beginPath();
-ctx.arc(circle.x, circle.y, circle.r, 0, 2 * Math.PI);
-ctx.fill();
+rect1.draw(ctx);
+rect2.draw(ctx);
+circ1.draw(ctx);
+circ2.draw(ctx);

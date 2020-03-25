@@ -1,37 +1,21 @@
 'use strict';
 /**
- * Move the classes to a separate file.
+ * Move the classes to separate files.
  */
 
 import { Circle, Rectangle } from './classes.mjs';
 
 // Create circle and rectangle objects
-const rect = new Rectangle(100, 50, 100, 200);
-const circle = new Circle(150, 300, 50);
+const rect1 = new Rectangle(100, 50, 100, 200, 'crimson');
+const rect2 = new Rectangle(300, 150, 100, 200, 'steelblue');
+const circ1 = new Circle(150, 350, 50, `crimson`);
+const circ2 = new Circle(350, 450, 50, `steelblue`);
 
-
-// draw the rectangle
+// get a handle on the drawing canvas
 const ctx = document.querySelector('canvas').getContext('2d');
-ctx.fillStyle = 'crimson';
-ctx.fillRect(rect.x, rect.y, rect.width, rect.height);
 
-// move the rectangle
-rect.moveBy(200, 100);
+rect1.draw(ctx);
+rect2.draw(ctx);
+circ1.draw(ctx);
+circ2.draw(ctx);
 
-// draw it again
-ctx.fillStyle = 'steelblue';
-ctx.fillRect(rect.x, rect.y, rect.width, rect.height);
-
-// draw the circle
-ctx.fillStyle = '#70A288';
-ctx.beginPath();
-ctx.arc(circle.x, circle.y, circle.r, 0, 2 * Math.PI);
-ctx.fill();
-
-// move the circle
-circle.moveBy(200, -200);
-
-// draw the circle again
-ctx.beginPath();
-ctx.arc(circle.x, circle.y, circle.r, 0, 2 * Math.PI);
-ctx.fill();
