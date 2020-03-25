@@ -1,73 +1,33 @@
 'use strict';
 /**
- * We can use the `class` keyword to describe the
- * properties of an object _before_ it is created.
+ * Previously, we needed to repeat the drawing logic.
+ * We can simplify this by making a function for it.
  *
- * Classes have constructors that let us prepare the
- * properties when an `instance` of the class is created.
- *
- * We define two classes Rectangle and Circle, and
- * create instances of each.
- *
- * They are then drawn as before.
+ * The `drawRect` function has six parameters: the
+ * drawing context and the five rectangle parameters.
  */
 
-// Define the properties and functions of a Rectangle
-class Rectangle {
-  constructor(x, y, width, height) {
-    this.x = x;
-    this.y = y;
-    this.width = width;
-    this.height = height;
-  }
+// create four variables
+let rectX = 100;
+let rectY = 50;
+let rectWidth = 100;
+let rectHeight = 200;
+let rectCol = 'crimson';
 
-  moveBy(x, y) {
-    this.x += x;
-    this.y += y;
-  }
+// draw a rectangle
+function drawRect(c, x, y, w, h, col) {
+  c.fillStyle = col;
+  c.fillRect(x, y, w, h);
 }
 
-// Define the properties and functions of a circle
-class Circle {
-  constructor(x, y, r) {
-    this.x = x;
-    this.y = y;
-    this.r = r;
-  }
-
-  moveBy(x, y) {
-    this.x += x;
-    this.y += y;
-  }
-}
-
-// Create circle and rectangle objects
-const rect = new Rectangle(100, 50, 100, 200);
-const circle = new Circle(150, 300, 50);
-
-
-// draw the rectangle
+// get a handle on the drawing canvas
 const ctx = document.querySelector('canvas').getContext('2d');
-ctx.fillStyle = 'crimson';
-ctx.fillRect(rect.x, rect.y, rect.width, rect.height);
+
+drawRect(ctx, rectX, rectY, rectWidth, rectHeight, rectCol);
 
 // move the rectangle
-rect.moveBy(200, 100);
+rectX += 200;
+rectY += 100;
+rectCol = 'steelblue';
 
-// draw it again
-ctx.fillStyle = 'steelblue';
-ctx.fillRect(rect.x, rect.y, rect.width, rect.height);
-
-// draw the circle
-ctx.fillStyle = '#70A288';
-ctx.beginPath();
-ctx.arc(circle.x, circle.y, circle.r, 0, 2 * Math.PI);
-ctx.fill();
-
-// move the circle
-circle.moveBy(200, -200);
-
-// draw the circle again
-ctx.beginPath();
-ctx.arc(circle.x, circle.y, circle.r, 0, 2 * Math.PI);
-ctx.fill();
+drawRect(ctx, rectX, rectY, rectWidth, rectHeight, rectCol);
