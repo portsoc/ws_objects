@@ -7,5 +7,9 @@
     "test0": "cd 0; node index.js;",
     "test1": "cd 1; node index.js;"
   },
-  "author": "Rich Boakes <rich@boakes.org>"
+  "author": "Rich Boakes <rich@boakes.org>",
+  "devDependencies": {
+    "eslint": "^6.8.0",
+    "eslint-config-portsoc": "^0.4.1"
+  }
 }

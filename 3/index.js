@@ -1,49 +1,41 @@
-"use strict";
+'use strict';
 /**
- * We have a rectangle object, so this example
- * uses the properties of that object to draw it.
+ * To our familiar rectangle object we add a circle object.
+ * The circle has an x and y position as well as a radius (r).
  */
 
-// create an object using JSON
-const rectangle = {
-  width: 400,
+// create an object
+const rect = {
+  x: 100,
+  y: 50,
+  width: 100,
   height: 200,
-  scale: function(s) {
-    this.width *= s;
-    this.height *= s;
-  }
-}
+  moveBy: function (x, y) {
+    this.x += x;
+    this.y += y;
+  },
+};
 
-const canvas = document.createElement("canvas");
-canvas.width = 800;
-canvas.height = 800;
-document.body.append(canvas);
+// draw the rectangle
+const ctx = document.querySelector('canvas').getContext('2d');
+ctx.fillStyle = 'crimson';
+ctx.fillRect(rect.x, rect.y, rect.width, rect.height);
 
-const ctx = canvas.getContext("2d");
+// move the rectangle
+rect.moveBy(200, 100);
 
-ctx.fillStyle = "orange";
-ctx.fillRect(0,0,rectangle.width, rectangle.height);
+// draw it again
+ctx.fillStyle = 'steelblue';
+ctx.fillRect(rect.x, rect.y, rect.width, rect.height);
 
-rectangle.scale(0.5);
-ctx.fillStyle = "blue";
-ctx.fillRect(0,0,rectangle.width, rectangle.height);
-
-/**
- * To the rectangle object we add a circle
- * object.  The circle has an x and y position
- * as well as a radius (r).
- */
-
-// create an object using JSON
+// create the circle object
 const circle = {
-  x: 200,
-  y: 100,
-  r: 50
-}
+  x: 150,
+  y: 300,
+  r: 50,
+};
 
-ctx.fillStyle = "purple";
-ctx.strokeStyle = "white";
+ctx.fillStyle = '#70A288';
 ctx.beginPath();
 ctx.arc(circle.x, circle.y, circle.r, 0, 2 * Math.PI);
 ctx.fill();
-ctx.stroke();

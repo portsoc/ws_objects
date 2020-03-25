@@ -1,29 +1,36 @@
-"use strict";
+'use strict';
 /**
- * Since functions are objects, objects can themselves
- * contain functions as properties.
+ * We can _structure_ the properties better, and
+ * make the code a little easier to read by
+ * constructing an object.
  *
- * Here, a scale function is added to the rectangle
- * object.  It operates on its own properties by using
- * the `this` keyword.
- *
- * The scale function is called twice, scaling by
- * two and five, so that the rectangle is ten times
- * its original size.
+ * Our `drawRect` function no longer needs
+ * six parameters.
  */
 
-// create an object using JSON
-const rectangle = {
-  width: 16,
-  height: 9,
-  scale: function(s) {
-    this.width *= s;
-    this.height *= s;
-  }
+// create an object
+const rect = {
+  x: 100,
+  y: 50,
+  width: 100,
+  height: 200,
+  col: 'crimson',
+};
+
+// draw a rectangle
+function drawRect(c, r) {
+  c.fillStyle = r.col;
+  c.fillRect(r.x, r.y, r.width, r.height);
 }
 
-console.log(rectangle);
-rectangle.scale(5);
-console.log(rectangle);
-rectangle.scale(2);
-console.log(rectangle);
+// get a handle on the drawing canvas
+const ctx = document.querySelector('canvas').getContext('2d');
+
+drawRect(ctx, rect);
+
+// move the rectangle
+rect.x += 200;
+rect.y += 100;
+rect.col = 'steelblue';
+
+drawRect(ctx, rect);

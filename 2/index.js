@@ -1,29 +1,46 @@
-"use strict";
+'use strict';
 /**
- * We have a rectangle object, so this example
- * uses the properties of that object to draw it.
+ * Objects can contain functions as properties.
+ *
+ * In the previous code, we can encapsulate with
+ *
+ * Here, two functions are added to the object:
+ * a moveBy function is added to the rectangle
+ * object.  It operates on the object's properties
+ * by using the `this` keyword.
+ *
+ * The bundling together of data and the methods that
+ * operate on data is called 'encapsulation`.
+ *
  */
 
-// create an object using JSON
-const rectangle = {
-  width: 400,
+// create an object
+const rect = {
+  x: 100,
+  y: 50,
+  width: 100,
   height: 200,
-  scale: function(s) {
-    this.width *= s;
-    this.height *= s;
-  }
-}
+  col: 'crimson',
 
-const canvas = document.createElement("canvas");
-canvas.width = 800;
-canvas.height = 800;
-document.body.append(canvas);
+  draw: function (c) {
+    ctx.fillStyle = this.col;
+    ctx.fillRect(this.x, this.y, this.width, this.height);
+  },
 
-const ctx = canvas.getContext("2d");
+  moveBy: function (x, y) {
+    this.x += x;
+    this.y += y;
+  },
+};
 
-ctx.fillStyle = "orange";
-ctx.fillRect(0,0,rectangle.width, rectangle.height);
+// draw the rectangle
+const ctx = document.querySelector('canvas').getContext('2d');
 
-rectangle.scale(0.5);
-ctx.fillStyle = "blue";
-ctx.fillRect(0,0,rectangle.width, rectangle.height);
+rect.draw(ctx);
+
+// move the rectangle
+rect.moveBy(200, 100);
+rect.col = 'steelblue';
+
+// draw it again
+rect.draw(ctx);

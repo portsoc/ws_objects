@@ -1,9 +1,6 @@
 'use strict';
 /**
- * We can also _encapsulate_ the code for how shapes
- * are drawn.  So here we call a draw function on each
- * shape, passing it the graphics context that will
- * be drawn upon.  To each `class` definition is added * then contain
+ * Move the classes to a separate file.
  */
 
 import { Circle, Rectangle } from './classes.mjs';
@@ -20,7 +17,7 @@ circle.draw(ctx);
 // move the objects
 rect.moveBy(200, 100);
 circle.moveBy(200, -200);
-rect.colour = 'steelblue';
+rect.fill = 'steelblue';
 
 // redraw
 rect.draw(ctx);

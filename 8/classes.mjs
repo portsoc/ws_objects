@@ -1,12 +1,12 @@
 export class Shape {
-  constructor(x,y, fill="grey", stroke = "white") {
+  constructor(x, y, fill = 'grey', stroke = 'white') {
     this.x = x;
     this.y = y;
     this.fill = fill;
     this.stroke = stroke;
   }
 
-  moveBy(x,y) {
+  moveBy(x, y) {
     this.x += x;
     this.y += y;
   }
@@ -19,8 +19,8 @@ export class Shape {
 
 // Define the properties and functions of a Rectangle
 export class Rectangle extends Shape {
-  constructor(x,y,w,h) {
-    super(x,y);
+  constructor(x, y, w, h, col) {
+    super(x, y);
     this.width = w;
     this.height = h;
   }
@@ -32,16 +32,17 @@ export class Rectangle extends Shape {
 
   draw(ctx) {
     super.draw(ctx);
-    ctx.fillRect(this.x,this.y,this.width,this.height);
+    ctx.fillRect(this.x, this.y, this.width, this.height);
   }
 }
 
 // Define the properties and functions of a circle
 export class Circle extends Shape {
-  constructor(x,y,r) {
-    super(x,y);
+  constructor(x, y, r) {
+    super(x, y);
     this.r = r;
   }
+
   draw(ctx) {
     super.draw(ctx);
     ctx.beginPath();
