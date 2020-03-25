@@ -17,4 +17,6 @@ const shapes = [
   new Circle(350, 450, 50, `steelblue`),
 ];
 
-shapes.forEach(s => s.draw(ctx));
+for (const s of shapes) {
+  s.draw(ctx);
+}
