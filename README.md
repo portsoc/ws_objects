@@ -2,13 +2,11 @@
 
 In this set of staged examples we show how we can use objects to structure our data and write better code for it.
 
-
 ## ToDo
 
 1. create readme content - DONE, but will need a rewrite
 2. generate diffs with a script (jack)
 3. Delete this todo section
-
 
 ## Stage 0: A basic program
 
