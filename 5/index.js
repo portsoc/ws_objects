@@ -9,7 +9,7 @@
  * properties by using the `this` keyword.
  */
 
-// Define the properties and functions of a Rectangle
+// define the properties and functions of a Rectangle
 class Rectangle {
   constructor(x, y, width, height, col) {
     this.x = x;
@@ -25,7 +25,7 @@ class Rectangle {
   }
 }
 
-// Create circle and rectangle objects
+// create circle and rectangle objects
 const rect = new Rectangle(100, 50, 100, 200, 'crimson');
 const anotherRect = new Rectangle(300, 150, 100, 200, 'steelblue');
 

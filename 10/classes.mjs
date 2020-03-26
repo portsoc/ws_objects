@@ -11,7 +11,7 @@ export class Shape {
   }
 }
 
-// Define the properties and functions of a Rectangle
+// define the properties and functions of a Rectangle
 export class Rectangle extends Shape {
   constructor(x, y, width, height, col) {
     super(x, y, col);
@@ -25,7 +25,7 @@ export class Rectangle extends Shape {
   }
 }
 
-// Define the properties and functions of a circle
+// define the properties and functions of a circle
 export class Circle extends Shape {
   constructor(x, y, r, col) {
     super(x, y, col);

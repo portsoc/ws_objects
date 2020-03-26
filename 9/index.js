@@ -9,7 +9,7 @@ import { Circle, Rectangle } from './classes.mjs';
 // get a handle on the drawing canvas
 const ctx = document.querySelector('canvas').getContext('2d');
 
-// Create circle and rectangle objects
+// create circle and rectangle objects
 const shapes = [
   new Rectangle(100, 50, 100, 200, 'crimson'),
   new Rectangle(300, 150, 100, 200, 'steelblue'),

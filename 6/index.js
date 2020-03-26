@@ -5,7 +5,7 @@
  * as a radius (`r`).
  */
 
-// Define the properties and functions of a Rectangle
+// define the properties and functions of a Rectangle
 class Rectangle {
   constructor(x, y, width, height, col) {
     this.x = x;
@@ -21,7 +21,7 @@ class Rectangle {
   }
 }
 
-// Define the properties and functions of a circle
+// define the properties and functions of a circle
 class Circle {
   constructor(x, y, r, col) {
     this.x = x;
@@ -38,7 +38,7 @@ class Circle {
   }
 }
 
-// Create circle and rectangle objects
+// create circle and rectangle objects
 const rect1 = new Rectangle(100, 50, 100, 200, 'crimson');
 const rect2 = new Rectangle(300, 150, 100, 200, 'steelblue');
 const circ1 = new Circle(150, 350, 50, `crimson`);

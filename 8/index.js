@@ -5,7 +5,7 @@
 
 import { Circle, Rectangle } from './classes.mjs';
 
-// Create circle and rectangle objects
+// create circle and rectangle objects
 const rect1 = new Rectangle(100, 50, 100, 200, 'crimson');
 const rect2 = new Rectangle(300, 150, 100, 200, 'steelblue');
 const circ1 = new Circle(150, 350, 50, `crimson`);
@@ -18,4 +18,3 @@ rect1.draw(ctx);
 rect2.draw(ctx);
 circ1.draw(ctx);
 circ2.draw(ctx);
-

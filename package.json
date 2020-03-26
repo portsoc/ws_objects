@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test0": "cd 0; node index.js;",
-    "test1": "cd 1; node index.js;"
+    "test1": "cd 1; node index.js;",
+    "lint": "eslint */*.js */*.mjs"
   },
   "author": "Rich Boakes <rich@boakes.org>",
   "devDependencies": {

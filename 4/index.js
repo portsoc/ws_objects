@@ -12,7 +12,7 @@
  * They are then drawn as before.
  */
 
-// Define the properties and functions of a Rectangle
+// define the properties and functions of a Rectangle
 class Rectangle {
   constructor(x, y, width, height, col) {
     this.x = x;
@@ -29,7 +29,7 @@ function drawRect(c, r) {
   c.fillRect(r.x, r.y, r.width, r.height);
 }
 
-// Create circle and rectangle objects
+// create circle and rectangle objects
 const rect = new Rectangle(100, 50, 100, 200, 'crimson');
 const anotherRect = new Rectangle(300, 150, 100, 200, 'steelblue');
 
