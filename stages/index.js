@@ -1,7 +1,8 @@
 'use strict';
 /**
- * Getters and setters can perform custom
- * code when a property is read or written.
+ * Getters can be used for computed properties.
+ *
+ * Here, shapes come with `.area`.
  */
 
 import { Circle, Rectangle } from './classes.mjs';
@@ -18,9 +19,6 @@ const shapes = [
 const ctx = document.querySelector('canvas').getContext('2d');
 
 for (const s of shapes) {
-  s.x = 50;
   s.draw(ctx);
-
-  // the following line would throw an error because 'hi' is not a number:
-  // s.x = 'hi';
+  console.log(s.area);
 }
