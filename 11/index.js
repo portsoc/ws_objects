@@ -18,6 +18,9 @@ const shapes = [
 ];
 
 for (const s of shapes) {
-  s.moveBy(200, 50);
+  s.x = 50;
   s.draw(ctx);
+
+  console.log(s.x);
 }
+

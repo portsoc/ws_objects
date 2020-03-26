@@ -1,27 +1,37 @@
 export class Shape {
   constructor(x, y, col) {
-    this.x = x;
-    this.y = y;
-    this.col = col;
+    this._x = x;
+    this._y = y;
+    this._col = col;
   }
 
   moveBy(x, y) {
-    this.x += x;
-    this.y += y;
+    this._x += x;
+    this._y += y;
   }
+
+  get x() {
+    return this._x;
+  }
+
+  set x(val) {
+    this._x = val;
+  }
+
+
 }
 
 // Define the properties and functions of a Rectangle
 export class Rectangle extends Shape {
   constructor(x, y, width, height, col) {
     super(x, y, col);
-    this.width = width;
-    this.height = height;
+    this._width = width;
+    this._height = height;
   }
 
   draw(ctx) {
-    ctx.fillStyle = this.col;
-    ctx.fillRect(this.x, this.y, this.width, this.height);
+    ctx.fillStyle = this._col;
+    ctx.fillRect(this._x, this._y, this._width, this._height);
   }
 }
 
@@ -29,13 +39,13 @@ export class Rectangle extends Shape {
 export class Circle extends Shape {
   constructor(x, y, r, col) {
     super(x, y, col);
-    this.r = r;
+    this._r = r;
   }
 
   draw(ctx) {
-    ctx.fillStyle = this.col;
+    ctx.fillStyle = this._col;
     ctx.beginPath();
-    ctx.arc(this.x, this.y, this.r, 0, 2 * Math.PI);
+    ctx.arc(this._x, this._y, this._r, 0, 2 * Math.PI);
     ctx.fill();
   }
 }
