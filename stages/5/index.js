@@ -24,7 +24,7 @@ class Rectangle {
   }
 }
 
-// create circle and rectangle objects
+// create the two rectangle objects
 const rect1 = new Rectangle(100, 50, 100, 200, 'crimson');
 const rect2 = new Rectangle(300, 150, 100, 200, 'steelblue');
 

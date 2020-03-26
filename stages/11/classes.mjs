@@ -5,11 +5,6 @@ export class Shape {
     this._col = col;
   }
 
-  moveBy(x, y) {
-    this._x += x;
-    this._y += y;
-  }
-
   get x() {
     return this._x;
   }
@@ -19,6 +14,11 @@ export class Shape {
       throw new TypeError('x must be a number');
     }
     this._x = val;
+  }
+
+  moveBy(x, y) {
+    this._x += x;
+    this._y += y;
   }
 }
 

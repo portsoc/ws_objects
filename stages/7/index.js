@@ -26,7 +26,6 @@ class Rectangle extends Shape {
   }
 }
 
-
 class Circle extends Shape {
   constructor(x, y, r, col) {
     super(x, y, col);

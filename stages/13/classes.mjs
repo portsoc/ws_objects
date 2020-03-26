@@ -9,13 +9,15 @@ export class Shape {
     this.#col = col;
   }
 
-  moveBy(x, y) {
-    this.#x += x;
-    this.#y += y;
-  }
-
   get x() {
     return this.#x;
+  }
+
+  set x(val) {
+    if (typeof val !== 'number') {
+      throw new TypeError('x must be a number');
+    }
+    this.#x = val;
   }
 
   get y() {
@@ -24,6 +26,15 @@ export class Shape {
 
   get col() {
     return this.#col;
+  }
+
+  get area() {
+    throw new Error('area is not a property of this shape');
+  }
+
+  moveBy(x, y) {
+    this.#x += x;
+    this.#y += y;
   }
 }
 
@@ -68,13 +79,13 @@ export class Circle extends Shape {
   }
 
   get area() {
-    return Math.PI * this.#r ** 2;
+    return Math.PI * this.r ** 2;
   }
 
   draw(ctx) {
     ctx.fillStyle = this.col;
     ctx.beginPath();
-    ctx.arc(this.x, this.y, this.#r, 0, 2 * Math.PI);
+    ctx.arc(this.x, this.y, this.r, 0, 2 * Math.PI);
     ctx.fill();
   }
 }
