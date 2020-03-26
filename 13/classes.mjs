@@ -1,12 +1,12 @@
 export class Shape {
-
   #x;
   #y;
+  #col;
 
   constructor(x, y, col) {
     this.#x = x;
     this.#y = y;
-    this._col = col;
+    this.#col = col;
   }
 
   moveBy(x, y) {
@@ -22,43 +22,59 @@ export class Shape {
     return this.#y;
   }
 
+  get col() {
+    return this.#col;
+  }
 }
 
-// define the properties and functions of a Rectangle
 export class Rectangle extends Shape {
+  #width;
+  #height;
+
   constructor(x, y, width, height, col) {
     super(x, y, col);
-    this._width = width;
-    this._height = height;
+    this.#width = width;
+    this.#height = height;
   }
 
-  draw(ctx) {
-    ctx.fillStyle = this._col;
-    ctx.fillRect(this.x, this.y, this._width, this._height);
+  get width() {
+    return this.#width;
+  }
+
+  get height() {
+    return this.#height;
   }
 
   get area() {
-    return this._width * this._height;
+    return this.width * this.height;
   }
 
+  draw(ctx) {
+    ctx.fillStyle = this.col;
+    ctx.fillRect(this.x, this.y, this.width, this.height);
+  }
 }
 
-// define the properties and functions of a circle
 export class Circle extends Shape {
+  #r;
+
   constructor(x, y, r, col) {
     super(x, y, col);
-    this._r = r;
+    this.#r = r;
   }
 
-  draw(ctx) {
-    ctx.fillStyle = this._col;
-    ctx.beginPath();
-    ctx.arc(this.x, this.y, this._r, 0, 2 * Math.PI);
-    ctx.fill();
+  get r() {
+    return this.#r;
   }
 
   get area() {
-    return Math.PI * this._r ** 2;
+    return Math.PI * this.#r ** 2;
   }
 
+  draw(ctx) {
+    ctx.fillStyle = this.col;
+    ctx.beginPath();
+    ctx.arc(this.x, this.y, this.#r, 0, 2 * Math.PI);
+    ctx.fill();
+  }
 }

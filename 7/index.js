@@ -1,8 +1,8 @@
 'use strict';
 /**
- * Refactor the `Rectangle` and `Circle` classes, taking the
- * common properties and functions and moving them to a
- * new _superclass_ called `Shape`.
+ * We refactor the `Rectangle` and `Circle` classes,
+ * taking the common properties and functions and
+ * moving them to a new _superclass_ called `Shape`.
  */
 
 class Shape {
@@ -13,7 +13,6 @@ class Shape {
   }
 }
 
-// define the properties and functions of a Rectangle
 class Rectangle extends Shape {
   constructor(x, y, width, height, col) {
     super(x, y, col);
@@ -28,7 +27,6 @@ class Rectangle extends Shape {
 }
 
 
-// define the properties and functions of a circle
 class Circle extends Shape {
   constructor(x, y, r, col) {
     super(x, y, col);
@@ -46,8 +44,8 @@ class Circle extends Shape {
 // create circle and rectangle objects
 const rect1 = new Rectangle(100, 50, 100, 200, 'crimson');
 const rect2 = new Rectangle(300, 150, 100, 200, 'steelblue');
-const circ1 = new Circle(150, 350, 50, `crimson`);
-const circ2 = new Circle(350, 450, 50, `steelblue`);
+const circ1 = new Circle(150, 350, 50, 'crimson');
+const circ2 = new Circle(350, 450, 50, 'steelblue');
 
 // get a handle on the drawing canvas
 const ctx = document.querySelector('canvas').getContext('2d');

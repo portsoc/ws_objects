@@ -9,7 +9,7 @@
  */
 
 // create an object
-const rect = {
+const rect1 = {
   x: 100,
   y: 50,
   width: 100,
@@ -18,7 +18,7 @@ const rect = {
 };
 
 // create another object
-const anotherRect = {
+const rect2 = {
   x: 300,
   y: 150,
   width: 100,
@@ -36,5 +36,5 @@ function drawRect(c, r) {
 // get a handle on the drawing canvas
 const ctx = document.querySelector('canvas').getContext('2d');
 
-drawRect(ctx, rect);
-drawRect(ctx, anotherRect);
+drawRect(ctx, rect1);
+drawRect(ctx, rect2);

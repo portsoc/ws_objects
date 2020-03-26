@@ -8,18 +8,18 @@
  */
 
 // create five variables
-const rectX = 100;
-const rectY = 50;
-const rectWidth = 100;
-const rectHeight = 200;
-const rectCol = 'crimson';
+const rect1x = 100;
+const rect1y = 50;
+const rect1width = 100;
+const rect1height = 200;
+const rect1col = 'crimson';
 
 // create another five variables
-const anotherRectX = 300;
-const anotherRectY = 150;
-const anotherRectWidth = 100;
-const anotherRectHeight = 200;
-const anotherRectCol = 'steelblue';
+const rect2x = 300;
+const rect2y = 150;
+const rect2width = 100;
+const rect2height = 200;
+const rect2col = 'steelblue';
 
 // draw a rectangle
 function drawRect(c, x, y, w, h, col) {
@@ -30,5 +30,5 @@ function drawRect(c, x, y, w, h, col) {
 // get a handle on the drawing canvas
 const ctx = document.querySelector('canvas').getContext('2d');
 
-drawRect(ctx, rectX, rectY, rectWidth, rectHeight, rectCol);
-drawRect(ctx, anotherRectX, anotherRectY, anotherRectWidth, anotherRectHeight, anotherRectCol);
+drawRect(ctx, rect1x, rect1y, rect1width, rect1height, rect1col);
+drawRect(ctx, rect2x, rect2y, rect2width, rect2height, rect2col);

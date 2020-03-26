@@ -1,15 +1,14 @@
 'use strict';
 /**
- * Objects can contain functions as properties.
+ * Objects can contain methods.
  *
- * Here, we move the drawRect function into the class
- * definition.
+ * Here, we move the `drawRect` function into the class
+ * definition as a `draw` method.
  *
- * Functions within objects have access to their
- * properties by using the `this` keyword.
+ * Methods have access to instance
+ * properties by using `this`.
  */
 
-// define the properties and functions of a Rectangle
 class Rectangle {
   constructor(x, y, width, height, col) {
     this.x = x;
@@ -26,11 +25,11 @@ class Rectangle {
 }
 
 // create circle and rectangle objects
-const rect = new Rectangle(100, 50, 100, 200, 'crimson');
-const anotherRect = new Rectangle(300, 150, 100, 200, 'steelblue');
+const rect1 = new Rectangle(100, 50, 100, 200, 'crimson');
+const rect2 = new Rectangle(300, 150, 100, 200, 'steelblue');
 
 // get a handle on the drawing canvas
 const ctx = document.querySelector('canvas').getContext('2d');
 
-rect.draw(ctx);
-anotherRect.draw(ctx);
+rect1.draw(ctx);
+rect2.draw(ctx);

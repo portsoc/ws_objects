@@ -1,18 +1,14 @@
 'use strict';
 /**
- * We can use the `class` keyword to describe the
- * properties of an object _before_ it is created.
+ * We use the `class` keyword to define a class
+ * before we create instances of it (objects).
  *
- * Classes have constructors that let us prepare the
- * properties when an `instance` of the class is created.
- *
- * We define two a `Rectangle` class and create two
+ * We define the `Rectangle` class and create two
  * instances of it.
  *
  * They are then drawn as before.
  */
 
-// define the properties and functions of a Rectangle
 class Rectangle {
   constructor(x, y, width, height, col) {
     this.x = x;
@@ -30,11 +26,11 @@ function drawRect(c, r) {
 }
 
 // create circle and rectangle objects
-const rect = new Rectangle(100, 50, 100, 200, 'crimson');
-const anotherRect = new Rectangle(300, 150, 100, 200, 'steelblue');
+const rect1 = new Rectangle(100, 50, 100, 200, 'crimson');
+const rect2 = new Rectangle(300, 150, 100, 200, 'steelblue');
 
 // get a handle on the drawing canvas
 const ctx = document.querySelector('canvas').getContext('2d');
 
-drawRect(ctx, rect);
-drawRect(ctx, anotherRect);
+drawRect(ctx, rect1);
+drawRect(ctx, rect2);

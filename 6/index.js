@@ -1,11 +1,10 @@
 'use strict';
 /**
  * We add a `Circle` class to complement our `Rectangle`.
- * The circle has an `x` and `y` position as well
+ * Circles have `x` and `y` position as well
  * as a radius (`r`).
  */
 
-// define the properties and functions of a Rectangle
 class Rectangle {
   constructor(x, y, width, height, col) {
     this.x = x;
@@ -21,7 +20,6 @@ class Rectangle {
   }
 }
 
-// define the properties and functions of a circle
 class Circle {
   constructor(x, y, r, col) {
     this.x = x;
@@ -41,8 +39,8 @@ class Circle {
 // create circle and rectangle objects
 const rect1 = new Rectangle(100, 50, 100, 200, 'crimson');
 const rect2 = new Rectangle(300, 150, 100, 200, 'steelblue');
-const circ1 = new Circle(150, 350, 50, `crimson`);
-const circ2 = new Circle(350, 450, 50, `steelblue`);
+const circ1 = new Circle(150, 350, 50, 'crimson');
+const circ2 = new Circle(350, 450, 50, 'steelblue');
 
 // get a handle on the drawing canvas
 const ctx = document.querySelector('canvas').getContext('2d');

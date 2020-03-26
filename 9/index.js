@@ -1,7 +1,7 @@
 'use strict';
 /**
- * We can clean up our handling of variables by
- * using an array.
+ * We use an array instead of four variables,
+ * resulting in cleaner code.
  */
 
 import { Circle, Rectangle } from './classes.mjs';
@@ -13,8 +13,8 @@ const ctx = document.querySelector('canvas').getContext('2d');
 const shapes = [
   new Rectangle(100, 50, 100, 200, 'crimson'),
   new Rectangle(300, 150, 100, 200, 'steelblue'),
-  new Circle(150, 350, 50, `crimson`),
-  new Circle(350, 450, 50, `steelblue`),
+  new Circle(150, 350, 50, 'crimson'),
+  new Circle(350, 450, 50, 'steelblue'),
 ];
 
 for (const s of shapes) {
