@@ -7,7 +7,7 @@
     "test0": "cd 0; node index.js;",
     "test1": "cd 1; node index.js;",
     "lint": "eslint --ext .js --ext .mjs ./",
-    "start": "http-server"
+    "start": "http-server stages"
   },
   "author": "Rich Boakes <rich@boakes.org>",
   "devDependencies": {
