@@ -1,19 +1,31 @@
 export class Shape {
+  #x;
+  #y;
+  #col;
+
   constructor(x, y, col) {
-    this._x = x;
-    this._y = y;
-    this._col = col;
+    this.#x = x;
+    this.#y = y;
+    this.#col = col;
   }
 
   get x() {
-    return this._x;
+    return this.#x;
   }
 
   set x(val) {
     if (typeof val !== 'number') {
       throw new TypeError('x must be a number');
     }
-    this._x = val;
+    this.#x = val;
+  }
+
+  get y() {
+    return this.#y;
+  }
+
+  get col() {
+    return this.#col;
   }
 
   get area() {
@@ -21,42 +33,59 @@ export class Shape {
   }
 
   moveBy(x, y) {
-    this._x += x;
-    this._y += y;
+    this.#x += x;
+    this.#y += y;
   }
 }
 
 export class Rectangle extends Shape {
+  #width;
+  #height;
+
   constructor(x, y, width, height, col) {
     super(x, y, col);
-    this._width = width;
-    this._height = height;
+    this.#width = width;
+    this.#height = height;
+  }
+
+  get width() {
+    return this.#width;
+  }
+
+  get height() {
+    return this.#height;
   }
 
   get area() {
-    return this._width * this._height;
+    return this.width * this.height;
   }
 
   draw(ctx) {
-    ctx.fillStyle = this._col;
-    ctx.fillRect(this._x, this._y, this._width, this._height);
+    ctx.fillStyle = this.col;
+    ctx.fillRect(this.x, this.y, this.width, this.height);
   }
 }
 
 export class Circle extends Shape {
+  #r;
+
   constructor(x, y, r, col) {
     super(x, y, col);
-    this._r = r;
+    this.#r = r;
+  }
+
+  get r() {
+    return this.#r;
   }
 
   get area() {
-    return Math.PI * this._r ** 2;
+    return Math.PI * this.r ** 2;
   }
 
   draw(ctx) {
-    ctx.fillStyle = this._col;
+    ctx.fillStyle = this.col;
     ctx.beginPath();
-    ctx.arc(this._x, this._y, this._r, 0, 2 * Math.PI);
+    ctx.arc(this.x, this.y, this.r, 0, 2 * Math.PI);
     ctx.fill();
   }
 }

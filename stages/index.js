@@ -1,8 +1,7 @@
 'use strict';
 /**
- * Getters can be used for computed properties.
- *
- * Here, shapes come with `.area`.
+ * JavaScript gives us syntax for private fields;
+ * the only changes in this stage are in `classes.mjs`.
  */
 
 import { Circle, Rectangle } from './classes.mjs';

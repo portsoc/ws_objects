@@ -1,0 +1,2 @@
+# private fields are not supported yet without babel
+parser: babel-eslint
