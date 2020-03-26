@@ -1,7 +1,7 @@
 'use strict';
 /**
  * We add a `Circle` class to complement our `Rectangle`.
- * The circle has an `x` and `y` position as wel
+ * The circle has an `x` and `y` position as well
  * as a radius (`r`).
  */
 

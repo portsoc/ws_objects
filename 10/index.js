@@ -1,40 +1,23 @@
 'use strict';
 /**
- * We can _structure_ the properties better, and
- * make the code a little easier to read by
- * constructing objects.
- *
- * Our `drawRect` function no longer needs
- * six parameters and the code is easier to read.
+ * Adding functions to a superclass makes them available
+ * to all classes that extend it.
  */
 
-// create an object
-const rect = {
-  x: 100,
-  y: 50,
-  width: 100,
-  height: 200,
-  col: 'crimson',
-};
-
-// create another object
-const anotherRect = {
-  x: 300,
-  y: 150,
-  width: 100,
-  height: 200,
-  col: 'steelblue',
-};
-
-
-// draw a rectangle
-function drawRect(c, r) {
-  c.fillStyle = r.col;
-  c.fillRect(r.x, r.y, r.width, r.height);
-}
+import { Circle, Rectangle } from './classes.mjs';
 
 // get a handle on the drawing canvas
 const ctx = document.querySelector('canvas').getContext('2d');
 
-drawRect(ctx, rect);
-drawRect(ctx, anotherRect);
+// Create circle and rectangle objects
+const shapes = [
+  new Rectangle(100, 50, 100, 200, 'crimson'),
+  new Rectangle(300, 150, 100, 200, 'steelblue'),
+  new Circle(150, 350, 50, `crimson`),
+  new Circle(350, 450, 50, `steelblue`),
+];
+
+for (const s of shapes) {
+  s.moveBy(200,50);
+  s.draw(ctx);
+}

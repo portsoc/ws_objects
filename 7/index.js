@@ -5,32 +5,13 @@
  * new _superclass_ called `Shape`.
  */
 
-
-// // Define the properties and functions of a circle
-// class Circle extends Shape {
-//   constructor(x, y, r) {
-//     super(x, y);
-//     this.r = r;
-//   }
-// }
-
-'use strict';
-/**
- * We add a `Circle` class to complement our `Rectangle`.
- * The circle has an `x` and `y` position as wel
- * as a radius (`r`).
- */
-
-
 class Shape {
   constructor(x, y, col) {
     this.x = x;
     this.y = y;
     this.col = col;
   }
-
 }
-
 
 // Define the properties and functions of a Rectangle
 class Rectangle extends Shape {

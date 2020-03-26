@@ -1,34 +1,36 @@
 'use strict';
 /**
- * We can remove the repetition in the drawing
- * logic by making a function for it.
+ * Objects can contain functions as properties.
  *
- * The `drawRect` function has six parameters: the
- * drawing context and the five rectangle parameters.
+ * Here, we move the drawRect function into the class
+ * definition.
+ *
+ * Functions within objects have access to their
+ * properties by using the `this` keyword.
  */
 
-// create five variables
-const rectX = 100;
-const rectY = 50;
-const rectWidth = 100;
-const rectHeight = 200;
-const rectCol = 'crimson';
+// Define the properties and functions of a Rectangle
+class Rectangle {
+  constructor(x, y, width, height, col) {
+    this.x = x;
+    this.y = y;
+    this.width = width;
+    this.height = height;
+    this.col = col;
+  }
 
-// create another five variables
-const anotherRectX = 300;
-const anotherRectY = 150;
-const anotherRectWidth = 100;
-const anotherRectHeight = 200;
-const anotherRectCol = 'steelblue';
-
-// draw a rectangle
-function drawRect(c, x, y, w, h, col) {
-  c.fillStyle = col;
-  c.fillRect(x, y, w, h);
+  draw(ctx) {
+    ctx.fillStyle = this.col;
+    ctx.fillRect(this.x, this.y, this.width, this.height);
+  }
 }
+
+// Create circle and rectangle objects
+const rect = new Rectangle(100, 50, 100, 200, 'crimson');
+const anotherRect = new Rectangle(300, 150, 100, 200, 'steelblue');
 
 // get a handle on the drawing canvas
 const ctx = document.querySelector('canvas').getContext('2d');
 
-drawRect(ctx, rectX, rectY, rectWidth, rectHeight, rectCol);
-drawRect(ctx, anotherRectX, anotherRectY, anotherRectWidth, anotherRectHeight, anotherRectCol);
+rect.draw(ctx);
+anotherRect.draw(ctx);
