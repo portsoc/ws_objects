@@ -2,13 +2,6 @@
 
 In this set of staged examples we show how we can use objects to structure our data and write better, more maintainable code.
 
-## ToDo
-
-1. generate diffs with a script (jack)
-2. review diffs
-3. Delete this todo section
-
-
 ## Stage 0: A basic program
 
 * `index.html` is a short web page that contains just a heading and an empty canvas.  This page does not change throughout the stages.
