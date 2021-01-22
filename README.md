@@ -6,21 +6,26 @@ In this set of staged examples we show how we can use objects to structure our d
 
 * `index.html` is a short web page that contains just a heading and an empty canvas.  This page does not change throughout the stages.
 * `index.js` is a program that draws a crimson rectangle on the canvas.  The properties of the rectangle are held in five variables.
+* [See it](https://portsoc.github.io/ws_objects/stages/0/index.html).
 
 ## Stage 1: A second rectangle ([see the diff](https://github.com/portsoc/ws_objects/commit/stage-1))
+
 * In this stage we add a steel-blue rectangle.
 * If we wanted to add more rectangles this would get repetitive and laboured.
 * There is repetition in both the implicit structure of the variables for each rectangle, and the code to draw the rectangles.
+* [See it](https://portsoc.github.io/ws_objects/stages/1/index.html).
 
 ## Stage 2: A `drawRect` function ([see the diff](https://github.com/portsoc/ws_objects/commit/stage-2))
 
 * We simplify the program by creating a `drawRect` function, so that the repetition when drawing rectangles is removed.  We can now change the way _all_ rectangles are drawn by changing this one function.
+* [See it](https://portsoc.github.io/ws_objects/stages/2/index.html).
 
 ## Stage 3: Using objects ([see the diff](https://github.com/portsoc/ws_objects/commit/stage-3))
 
 * We group the rectangle properties in objects, to structure the code better.
 * This allows us to simplify the property names.
 * The `drawRect` function now takes just two parameters.
+* [See it](https://portsoc.github.io/ws_objects/stages/3/index.html).
 
 ## Stage 4: Data encapsulation ([see the diff](https://github.com/portsoc/ws_objects/commit/stage-4))
 
@@ -31,6 +36,8 @@ In this set of staged examples we show how we can use objects to structure our d
   * Classes have a `constructor` function that is called when a new _instance_ of the class is created.
   * Classes provide a standardised way of ensuring that every object has the same basic properties, and constructors set their initial values.
 * Each rectangle object (i.e. each instance of the `Rectangle` class) is now created using a single line of code.
+* [See it](https://portsoc.github.io/ws_objects/stages/4/index.html).
+
 
 ## Stage 5: Function encapsulation ([see the diff](https://github.com/portsoc/ws_objects/commit/stage-5))
 
@@ -40,6 +47,8 @@ In this set of staged examples we show how we can use objects to structure our d
     * Methods are _invoked_ (not called) on objects.
     * When a method is invoked, the object on which it was called can be accessed through a special variable named `this`.
 * Once the Rectangle class includes a `draw` function, each instance of rectangle can be asked to draw itself.
+* [See it](https://portsoc.github.io/ws_objects/stages/5/index.html).
+
 
 ## Stage 6: A Circle ([see the diff](https://github.com/portsoc/ws_objects/commit/stage-6))
 
@@ -47,6 +56,7 @@ In this set of staged examples we show how we can use objects to structure our d
 * Like rectangles, circles have `x` & `y` positions and a `colour`, but no `width` or `height`: instead they have a radius `r`.
 * The `draw` function is rewritten so that instances of `Circle` can draw themselves.
 * Now we can create and draw two circles.
+* [See it](https://portsoc.github.io/ws_objects/stages/6/index.html).
 
 ## Stage 7: Superclasses and subclasses ([see the diff](https://github.com/portsoc/ws_objects/commit/stage-7))
 
@@ -57,15 +67,19 @@ In this set of staged examples we show how we can use objects to structure our d
   * `Rectangle` and `Circle` only contain code specific to their particular shape.
   * The process of refactoring classes to create a new superclass is called _generalisation_.
 * Notice that in the constructor of a subclass, its superclass constructor is called using the `super()` function – this reduces duplication of code.
+* [See it](https://portsoc.github.io/ws_objects/stages/7/index.html).
+
 
 ## Stage 8: A file for classes ([see the diff](https://github.com/portsoc/ws_objects/commit/stage-8))
 
 * When code gets longer, often it's a good idea to modularise by moving independent pieces into separate files:
-  * Here, we can move the class definitions into `classes.mjs`.  
+  * Here, we can move the class definitions into `classes.mjs`.
   * The `.mjs` extension is a convention used for JavaScript modules.
 * JavaScript modules `export` functions and variables.  The `import` keyword is used to make these available in other files.
   * The `script` element in `index.html` must specify that `type=module` – only then are `import` and `export` allowed.
   * For security reasons, module imports are not allowed to load local files, therefore we need to look at this example through a web server; `npm start` will run a local web server on your machine.
+* [See it](https://portsoc.github.io/ws_objects/stages/8/index.html).
+
 
 ## Stage 9: An array of shapes ([see the diff](https://github.com/portsoc/ws_objects/commit/stage-9))
 
@@ -74,12 +88,16 @@ In this set of staged examples we show how we can use objects to structure our d
 * The `classes.mjs` file has not changed at this stage.
   * This shows the benefit of modularization: when changing the way we store the shapes we did not need to see how they are implemented.
   * Not having the code in our editor means we cannot accidentally break it.
+* [See it](https://portsoc.github.io/ws_objects/stages/9/index.html).
+
 
 ## Stage 10: Inheriting functions from superclasses ([see the diff](https://github.com/portsoc/ws_objects/commit/stage-10))
 
 * A function that's defined in a superclass is inherited by all classes that extend the superclass.
 * We define a `moveBy` function that accepts two parameters (`x` & `y`) and adds these to the existing `x` and `y` properties of the instance.
 * We use this method to move all shapes to the right and down, then draw them a second time.
+* [See it](https://portsoc.github.io/ws_objects/stages/10/index.html).
+
 
 ## Stage 11: Getters and Setters (and underscores) ([see the diff](https://github.com/portsoc/ws_objects/commit/stage-11))
 
@@ -93,6 +111,8 @@ In this set of staged examples we show how we can use objects to structure our d
 * Here we add a getter & setter for the `x` property, whose value is internally stored in the `_x` property.
   * Inside the setter, we check the given value is a number.
 * In `index.js`, we set the `x` property of every shape to 50 – the setter gets invoked to do this.
+* [See it](https://portsoc.github.io/ws_objects/stages/11/index.html).
+
 
 ## Stage 12: Getters for computed properties ([see the diff](https://github.com/portsoc/ws_objects/commit/stage-12))
 
@@ -101,10 +121,12 @@ In this set of staged examples we show how we can use objects to structure our d
 * In `Shape` we define a getter for `area` that throws an error message, so if `Shape` is extended but the `area` method is not implemented, accessing `area` will give meaningful feedback.
 * In `Rectangle` and `Circle` we define `area` getter functions using appropriate formulae.
 * In `index.js` we can use the `area` getters as if they were properties on our shapes, logging the value to the console.
+* [See it](https://portsoc.github.io/ws_objects/stages/12/index.html).
+
 
 ## Stage 13: Private fields (Private properties) ([see the diff](https://github.com/portsoc/ws_objects/commit/stage-13))
 
-* The underscores seen previously are a common mechanism for programmers to informally communicate that a property is an implementation detail that is not intended for access or use by others.  
+* The underscores seen previously are a common mechanism for programmers to informally communicate that a property is an implementation detail that is not intended for access or use by others.
 * JavaScript has the (experimental) ability to define private fields in classes.
   * Private fields are denoted by the hash symbol, used before the property name.
   * Private fields must all be declared before the constructor.
@@ -112,3 +134,4 @@ In this set of staged examples we show how we can use objects to structure our d
   * They are only accessible from methods defined within the class.
   * This means private fields cannot be accessed by subclasses, so getters/setters must be implemented if subclasses need read/write access.
 * In this stage, in `classes.mjs` we use private properties like `#x` and `#y` to hide properties that should be treated as implementation details.
+* [See it](https://portsoc.github.io/ws_objects/stages/13/index.html).
